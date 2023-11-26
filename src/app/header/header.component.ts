@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-collapsed=true;
+  @Output() headerEvent = new EventEmitter<number>();
+  collapsed = true;
+
+  onHeaderClick(category: number) {
+    this.headerEvent.emit(category);
+  }
 }
