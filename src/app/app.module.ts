@@ -9,6 +9,7 @@ import { RecipeListComponent } from './header/recipes/recipe-list/recipe-list.co
 import { RecipeItemComponent } from './header/recipes/recipe-list/recipe-item/recipe-item.component';
 import { RecipeDetailComponent } from './header/recipes/recipe-detail/recipe-detail.component';
 import { RecipesComponent } from './header/recipes/recipes.component';
+import {RouterLink} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RecipesComponent } from './header/recipes/recipes.component';
     RecipesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterLink
   ],
   providers: [],
   bootstrap: [AppComponent]
