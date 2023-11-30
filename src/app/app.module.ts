@@ -10,6 +10,7 @@ import { RecipeItemComponent } from './header/recipes/recipe-list/recipe-item/re
 import { RecipeDetailComponent } from './header/recipes/recipe-detail/recipe-detail.component';
 import { RecipesComponent } from './header/recipes/recipes.component';
 import {RouterLink} from "@angular/router";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {RouterLink} from "@angular/router";
     RecipesComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     RouterLink
   ],
