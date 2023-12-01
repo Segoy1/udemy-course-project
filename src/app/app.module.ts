@@ -11,6 +11,7 @@ import { RecipeDetailComponent } from './header/recipes/recipe-detail/recipe-det
 import { RecipesComponent } from './header/recipes/recipes.component';
 import {RouterLink} from "@angular/router";
 import {FormsModule} from "@angular/forms";
+import {DropdownDirective} from "./header/shared/dropdown.directive";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {FormsModule} from "@angular/forms";
     RecipeItemComponent,
     RecipeDetailComponent,
     ShoppingListEditComponent,
-    RecipesComponent
+    RecipesComponent,
+    DropdownDirective
   ],
   imports: [
     FormsModule,
