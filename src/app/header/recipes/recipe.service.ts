@@ -1,17 +1,37 @@
 import {Recipe} from "./recipe.model";
-import {EventEmitter} from "@angular/core";
+import {EventEmitter, Injectable} from "@angular/core";
+import {Ingredient} from "../shared/ingredient.model";
+import {ShoppingListService} from "../shopping-list/shopping-list.service";
 
+@Injectable()
 export class RecipeService{
   recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
-    new Recipe('Test Recipe',
-      'This is the Test Recipe',
-      'https://hips.hearstapps.com/hmg-prod/images/crepes-lead-64347419487e4.jpg?crop=0.9995238095238095xw:1xh;center,top&resize=980:*'),
-    new Recipe('second Test Recipe', 'Still a Test', 'https://hips.hearstapps.com/hmg-prod/images/crepes-lead-64347419487e4.jpg?crop=0.9995238095238095xw:1xh;center,top&resize=980:*')
+    new Recipe('Steak',
+      'Mmmmmhm Steak',
+      'https://www.grillfuerst.de/magazin/wp-content/uploads/2021/12/Entrecote-grillen.jpg.webp?v=1665041148',
+      [
+        new Ingredient('Meat', 500),
+        new Ingredient('Fries', 20),
+      ]),
+    new Recipe('Hamburger',
+      'Yummy Burger',
+      'https://www.foodandwine.com/thmb/DI29Houjc_ccAtFKly0BbVsusHc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/crispy-comte-cheesburgers-FT-RECIPE0921-6166c6552b7148e8a8561f7765ddf20b.jpg',
+      [
+        new Ingredient('Buns', 2),
+        new Ingredient('Meat', 250)
+      ])
   ];
+
+  constructor(private shoppingListService:ShoppingListService) {
+  }
 
   getRecipes(){
     return this.recipes.slice();
+  }
+
+  addToShoppingList(ingredients: Ingredient[]) {
+    this.shoppingListService.addIngredients(ingredients);
   }
 }
