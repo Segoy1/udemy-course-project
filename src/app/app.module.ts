@@ -19,6 +19,7 @@ import { RecipeEditComponent } from './header/recipes/recipe-edit/recipe-edit.co
 import {RecipeService} from "./header/recipes/recipe.service";
 import {HttpClientModule} from "@angular/common/http";
 import {AuthComponent} from "./auth/auth.component";
+import {LoadingSpinnerComponent} from "./header/shared/loading-spinner/loading-spinner.component";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {AuthComponent} from "./auth/auth.component";
     DropdownDirective,
     RecipeStartComponent,
     RecipeEditComponent,
-    AuthComponent
+    AuthComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     FormsModule,
