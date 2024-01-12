@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {catchError, tap} from "rxjs/operators";
-import {Subject, throwError} from "rxjs";
+import {BehaviorSubject, Subject, throwError} from "rxjs";
 import {User} from "./user.model";
 
 export interface AuthResponseData {
@@ -19,7 +19,7 @@ export class AuthService {
   private signUpUrl = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCi3-QpZSOwTJ7e-DmE3UpQIYEk_c4eSbo';
   private loginUrl = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCi3-QpZSOwTJ7e-DmE3UpQIYEk_c4eSbo';
 
-  user = new Subject<User>();
+  user = new BehaviorSubject<User>(null);
 
   constructor(private http: HttpClient) {
   }
@@ -57,7 +57,7 @@ export class AuthService {
   private handleError(errorRes: HttpErrorResponse) {
     let errorMessage = 'An unknown Error occurred!'
     if (!errorRes.error || !errorRes.error.error) {
-      return throwError(errorMessage);
+      return throwError(errorRes);
     }
     switch (errorRes.error.error.message) {
       case 'EMAIL_EXISTS':

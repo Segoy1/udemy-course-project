@@ -47,10 +47,9 @@ export class AuthComponent {
         (errorMessage) => {
           this.error = errorMessage;
           this.isLoading = false;
-          this.router.navigate(['./recipes']);
+          console.log(this.error);
         }
     });
-    console.log(form.value);
     form.resetForm();
   }
 }

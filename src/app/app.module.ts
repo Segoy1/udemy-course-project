@@ -17,9 +17,10 @@ import {ShoppingListService} from "./header/shopping-list/shopping-list.service"
 import {RecipeStartComponent} from "./header/recipes/recipe-start/recipe-start.component";
 import { RecipeEditComponent } from './header/recipes/recipe-edit/recipe-edit.component';
 import {RecipeService} from "./header/recipes/recipe.service";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthComponent} from "./auth/auth.component";
 import {LoadingSpinnerComponent} from "./header/shared/loading-spinner/loading-spinner.component";
+import {AuthInterceptorService} from "./auth/auth-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import {LoadingSpinnerComponent} from "./header/shared/loading-spinner/loading-s
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ShoppingListService, RecipeService],
+  providers: [ShoppingListService, RecipeService, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi:true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
