@@ -6,10 +6,8 @@ import { HeaderComponent } from './header/header.component';
 import {RouterLink} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import { HttpClientModule} from "@angular/common/http";
-import {ShoppingListModule} from "./header/shopping-list/shopping-list.module";
 import {SharedModule} from "./header/shared/shared.module";
 import {CoreModule} from "./core.module";
-import {AuthModule} from "./auth/auth.module";
 
 @NgModule({
   declarations: [
@@ -21,10 +19,8 @@ import {AuthModule} from "./auth/auth.module";
     AppRoutingModule,
     RouterLink,
     HttpClientModule,
-    ShoppingListModule,
     SharedModule,
-    CoreModule,
-    AuthModule
+    CoreModule
   ],
   bootstrap: [AppComponent]
 })
