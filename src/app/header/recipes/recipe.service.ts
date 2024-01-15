@@ -5,7 +5,7 @@ import {ShoppingListService} from "../shopping-list/shopping-list.service";
 import {RecipeEditComponent} from "./recipe-edit/recipe-edit.component";
 import {Subject} from "rxjs";
 
-@Injectable()
+@Injectable({providedIn:"root"})
 export class RecipeService{
   recipesChanged = new Subject<Recipe[]>();
 

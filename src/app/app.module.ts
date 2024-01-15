@@ -5,35 +5,31 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import {RouterLink} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {DropdownDirective} from "./header/shared/dropdown.directive";
 import {AppRoutingModule} from "./app-routing.module";
-import {ShoppingListService} from "./header/shopping-list/shopping-list.service";
-import {RecipeService} from "./header/recipes/recipe.service";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import { HttpClientModule} from "@angular/common/http";
 import {AuthComponent} from "./auth/auth.component";
-import {AuthInterceptorService} from "./auth/auth-interceptor.service";
 import {RecipesModule} from "./header/recipes/recipes.module";
 import {ShoppingListModule} from "./header/shopping-list/shopping-list.module";
 import {SharedModule} from "./header/shared/shared.module";
+import {CoreModule} from "./core.module";
+import {AuthModule} from "./auth/auth.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    AuthComponent
+    HeaderComponent
   ],
   imports: [
-    FormsModule,
     BrowserModule,
     AppRoutingModule,
     RouterLink,
-    ReactiveFormsModule,
     HttpClientModule,
     RecipesModule,
     ShoppingListModule,
-    SharedModule
+    SharedModule,
+    CoreModule,
+    AuthModule
   ],
-  providers: [ShoppingListService, RecipeService, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi:true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
