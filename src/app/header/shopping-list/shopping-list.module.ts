@@ -4,6 +4,7 @@ import {ShoppingListEditComponent} from "./shopping-list-edit/shopping-list-edit
 import {FormsModule} from "@angular/forms";
 import {RouterModule, Routes} from "@angular/router";
 import {SharedModule} from "../shared/shared.module";
+import {LoggingService} from "../../logging.service";
 
 const routes:  Routes =   [
   {path: '', component: ShoppingListComponent}
@@ -20,7 +21,8 @@ const routes:  Routes =   [
       FormsModule,
       RouterModule.forChild(routes)
     ],
-    exports: [RouterModule]
+    exports: [RouterModule],
+    providers: [LoggingService]
   }
 )
 export class ShoppingListModule{}
